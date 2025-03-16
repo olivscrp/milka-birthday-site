@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+</head>
+<body style="background: black; color: white; text-align: center;">
+
+    <h3>🎶 Now Playing...</h3>
+
+    <!-- YouTube Iframe -->
+    <div id="player"></div>
+
+    <script>
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '0',
+                width: '0',
+                videoId: 'RgOIt-jOz-k', // Your YouTube video ID
+                playerVars: {
+                    'autoplay': 1, 
+                    'loop': 1, 
+                    'playlist': 'RgOIt-jOz-k' 
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

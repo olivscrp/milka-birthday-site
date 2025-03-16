@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 25th Birthday!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+</head>
+<body class="bg-gradient-to-br from-purple-200 via-pink-100 to-white min-h-screen font-sans">
+    
+    
+    <!-- Header Section -->
+    <header class="text-center py-3">
+        <h1 class="text-4xl md:text-6xl font-bold text-purple-800">Happy 25th Birthday, my Milka!</h1>
+        <p class="text-lg md:text-xl text-gray-600 mt-4">A celebration of your amazing journey so far!</p>
+        <button id="playMusicBtn">🎵 Play Music</button>
+
+<script>
+    function openMusicPopup() {
+        var musicWindow = window.open("music.html", "MusicPlayer", "width=300,height=200");
+        if (musicWindow) {
+            document.getElementById("playMusicBtn").style.display = "none"; // Hide button after click
+        }
+    }
+
+    document.getElementById("playMusicBtn").addEventListener("click", openMusicPopup);
+</script>
+
+    </header>
+
+    <!-- Countdown Timer -->
+<section class="text-center py-2">
+    <div class="inline-block p-6 bg-white shadow-lg rounded-lg">
+        <p class="text-xl font-semibold text-gray-700">Countdown to Your Special Day:</p>
+        <div id="countdown" class="text-3xl font-bold text-purple-600 mt-4">00d 00h 00m 00s</div>
+        <button onclick="window.location.href='secondPage.html';" class="mt-4 px-6 py-2 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition duration-300">Click Me</button>
+    </div>
+</section>
+
+
+    <!-- Photo Gallery Section -->
+<section class="py-2 px-2">
+    <h2 class="text-3xl font-bold text-center text-purple-700">Gallery of Memories</h2>
+    <div class="mt-8 swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/photo1.jpg" alt="Memory 1" class="gallery-image rounded-lg shadow-md"></div>
+            <div class="swiper-slide"><img src="images/photo2.jpg" alt="Memory 2" class="gallery-image rounded-lg shadow-md"></div>
+            <div class="swiper-slide"><img src="images/photo3.jpg" alt="Memory 3" class="gallery-image rounded-lg shadow-md"></div>
+            <div class="swiper-slide"><img src="images/photo4.jpg" alt="Memory 4" class="gallery-image rounded-lg shadow-md"></div>
+            <div class="swiper-slide"><img src="images/photo5.jpg" alt="Memory 5" class="gallery-image rounded-lg shadow-md"></div>
+            <div class="swiper-slide"><img src="images/photo6.jpg" alt="Memory 6" class="gallery-image rounded-lg shadow-md"></div>
+            <div class="swiper-slide"><img src="images/photo7.jpg" alt="Memory 7" class="gallery-image rounded-lg shadow-md"></div>
+            <div class="swiper-slide"><img src="images/photo8.jpg" alt="Memory 8" class="gallery-image rounded-lg shadow-md"></div>
+            <div class="swiper-slide"><img src="images/photo9.jpg" alt="Memory 9" class="gallery-image rounded-lg shadow-md"></div>
+            <div class="swiper-slide"><img src="images/photo10.jpg" alt="Memory 10" class="gallery-image rounded-lg shadow-md"></div>
+            <div class="swiper-slide"><img src="images/photo11.jpg" alt="Memory 11" class="gallery-image rounded-lg shadow-md"></div>
+            <div class="swiper-slide"><img src="images/photo12.jpg" alt="Memory 12" class="gallery-image rounded-lg shadow-md"></div>
+            <!-- Add more images as needed -->
+        </div>
+        <!-- Add Pagination (Optional) -->
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        loop: true, // Makes the carousel loop infinitely
+        autoplay: {
+            delay: 500, // No delay, it slides immediately
+            disableOnInteraction: false, // Keep sliding even after user interacts
+        },
+        speed: 1000, // Smooth transition speed in milliseconds
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        },
+    });
+</script>
+
+
+<!-- CSS for equal image size -->
+<style>
+    .gallery-image {
+        width: 100%;
+        height: 350px; /* Adjust the height as needed */
+        object-fit: cover; /* Ensures images maintain their aspect ratio and fill the container */
+    }
+</style>
+
+
+
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-purple-200">
+        <p class="text-gray-700">Made with ❤️ by Olive</p>
+    </footer>
+
+    <!-- Countdown Timer Script -->
+    <script>
+        const countdownElement = document.getElementById('countdown');
+        const targetDate = new Date('2025-03-17T00:00:00');
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff < 0) {
+                countdownElement.textContent = "Happy Birthday!";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
